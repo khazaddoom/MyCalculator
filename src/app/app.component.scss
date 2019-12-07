@@ -1,4 +1,5 @@
 .calculator {
+
     width: 600px;
     font-size: 5rem;
     height: 80px;
@@ -8,7 +9,7 @@
     padding-right: 20px;
     padding-left: 10px;
 
-    margin: 0 auto;
+    margin: 10rem auto;
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -16,7 +17,7 @@
     grid-gap: 5px;
 
     &__display {
-        width: inherit;
+
         grid-column: 1 / 5;
         font-size: 5rem;
         height: 80px;
@@ -28,7 +29,7 @@
         padding-left: 10px;
     }
 
-    button {
+    .btn {
         height: 60px;
         background-color: #fff;
         border-radius: 3px;
@@ -42,6 +43,12 @@
 
         &:hover {
             background-color: #eaeaea;
+            color: #000;
+        }
+
+        &-red {
+            background-color: red;
+            color: #fffA;
         }
     }  
 
