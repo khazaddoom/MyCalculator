@@ -1,24 +1,33 @@
 <div class="calculator">
     
-</div>
+    <input type="text" class="calculator__display" value="{{ value }}" disabled />
 
+    <button (click) = "handleClick('AC', true)" class="input-container__item position_1-3">{{ 'AC' }}</button>
+    <button (click) = "handleClick('+', true)" class="input-container__item">{{ '+' }}</button>
+    <button (click) = "handleClick('-', true)" class="input-container__item">{{ '-' }}</button>
+    <button (click) = "handleClick('*', true)" class="input-container__item">{{ '*' }}</button>
+    <button (click) = "handleClick('/', true)" class="input-container__item">{{ '/' }}</button>
+    <button (click) = "handleClick('.', true)" class="input-container__item">{{ '.' }}</button>
+    <button (click) = "handleClick('=', true)" class="input-container__item">{{ '=' }}</button>
 
-<h1>{{ value }} </h1>
-
-<div class="display-container">
-    <h3 class="display-container__item">{{ side[0] }}</h3>
-    <h3 class="display-container__item">{{ side[1] }}</h3>
-</div>
-
-
-<div class="input-container">
+    <button (click) = "handleClick(0, false)" class="input-container__item position_3-4">{{ 0 }}</button>            
     <button (click) = "handleClick(1, false)" class="input-container__item">{{ 1 }}</button>
-   
     <button (click) = "handleClick(2, false)" class="input-container__item">{{ 2 }}</button>
-    
+    <button (click) = "handleClick(3, false)" class="input-container__item">{{ 3 }}</button>
+    <button (click) = "handleClick(4, false)" class="input-container__item">{{ 4 }}</button>
+    <button (click) = "handleClick(5, false)" class="input-container__item">{{ 5 }}</button>
+    <button (click) = "handleClick(6, false)" class="input-container__item">{{ 6 }}</button>
+    <button (click) = "handleClick(7, false)" class="input-container__item">{{ 7 }}</button>
+    <button (click) = "handleClick(8, false)" class="input-container__item">{{ 8 }}</button>
+    <button (click) = "handleClick(9, false)" class="input-container__item">{{ 9 }}</button>          
+
 </div>
 
-<button (click) = "handleClick('AC', true)" class="input-container__item">{{ 'AC' }}</button>
-<button (click) = "handleClick('+', true)" class="input-container__item">{{ '+' }}</button>
-<button (click) = "handleClick('*', true)" class="input-container__item">{{ '*' }}</button>
-<button (click) = "handleClick('=', true)" class="input-container__item">{{ '=' }}</button>
+
+
+
+
+
+
+
+
