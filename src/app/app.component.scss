@@ -30,6 +30,7 @@
     }
 
     .btn {
+        font-weight: bold;
         height: 60px;
         background-color: #fff;
         border-radius: 3px;
@@ -48,19 +49,20 @@
 
         &-red {
             background-color: red;
-            color: #fffA;
+            color: #ffff;
+            font-weight: bolder;
         }
     }  
 
-    .position_3-4 {
-        grid-column: 3 / 4;
-        grid-row: 2 / 3;
+    .poistion {
+        &_3-4 {
+            grid-column: 3 / 4;
+            grid-row: 2 / 3;
+        }
+    
+        &-1-3 {
+            grid-column: 1 / 3;
+            grid-row: 2 / 3;
+        }
     }
-
-    .position_1-3 {
-        grid-column: 1 / 3;
-        grid-row: 2 / 3;
-    }
-
-
 }
