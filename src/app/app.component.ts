@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Button } from 'protractor';
 
 @Component({
   selector: 'app-root',
@@ -6,112 +7,71 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+
   value: number;
 
-  lastButtonType: {
-    value: string | number,
-    type: ButtonType
-  };
 
   side: [number, number];
   index: number;
 
-  constructor() {}
+  lastOperator: null;
+
+  constructor() { }
 
   ngOnInit() {
     this.initialize();
   }
 
   handleClick(input, operator) {
-
     debugger;
+    if (operator) {
+      if(this.index === 1) {
 
-    if(operator) {
+        this.value = this.calculate();
+        this.side[0] = this.value;
+        this.side[1] = 0;
 
-      if(this.lastButtonType.type === ButtonType.OPERATOR) return;
-      
-      if(input === 'AC') {
-        this.initialize();
       } else {
-        
-        this.lastButtonType = {
-          value: input,
-          type: ButtonType.OPERATOR
-        };
-
-        this.calculate(input);
-      }
-
+        this.lastOperator = input;
+        this.index = 1;
+      }     
     } else {
-      debugger;
-      if(this.lastButtonType.type === ButtonType.NUMBER || this.lastButtonType.type === ButtonType.CLEAR) {
-
-        this.side[this.index] = (this.side[this.index] * 10) + input;    
-
-      } else  if(this.lastButtonType.type === ButtonType.OPERATOR) {
-        this.side[this.index] = input;
-      }
-      this.lastButtonType = {
-        value: input,
-        type: ButtonType.NUMBER
-      }
+      this.side[this.index] = (this.side[this.index] * 10) + input;
     }
+
   }
 
   initialize() {
 
     this.value = 0;
-    
-    this.lastButtonType = {
-      value: 0,
-      type: ButtonType.CLEAR
-    };
-
     this.side = [0, 0];
     this.index = 0;
+
   }
 
-  calculate(operator) {
+  calculate() {
 
-    // if(this.value === 0) {
-    //   this.index === 0 ? this.index = 1: this.index = 0;
-    //   return;
-    // } else 
-    {
-      switch(operator) {
-        case '+' : {
-          this.value = this.side[0] + this.side[1];
-          this.side[0] = this.value;
-          this.index = 0;
-          this.side[1] = 0;
-          return;
-        }
-        case '-' : {
-          this.value = this.side[0] - this.side[1];
-          this.side[0] = this.value;
-          this.index = 0;
-          this.side[1] = 0;
-          return;
-        }
-        case '*' : {
-          this.value = this.side[0] * this.side[1];
-          this.side[0] = this.value;
-          this.index = 0;
-          this.side[1] = 0;
-          return;
-        }
-        case '/' : {
-          this.value = Math.round(this.side[0] / this.side[1]);
-          this.side[0] = this.value;
-          this.index = 0;
-          this.side[1] = 0;
-          break;
-        }
-      }
-    }
+    let result = 0;
+
+    if(!this.lastOperator) return result;
+
+    switch(this.lastOperator) {
+      
+      case '+':
+        result = this.side[0] + this.side[1];
+        break;
     
+      case '*':
+          result = this.side[0] * this.side[1];
+          break;
+
+      default:
+        break;
+    }
+
+    return result;
   }
+
 
 }
 

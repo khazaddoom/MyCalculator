@@ -1,3 +1,8 @@
+<div class="calculator">
+    
+</div>
+
+
 <h1>{{ value }} </h1>
 
 <div class="display-container">
@@ -8,9 +13,12 @@
 
 <div class="input-container">
     <button (click) = "handleClick(1, false)" class="input-container__item">{{ 1 }}</button>
-    <button (click) = "handleClick('+', true)" class="input-container__item">{{ '+' }}</button>
+   
     <button (click) = "handleClick(2, false)" class="input-container__item">{{ 2 }}</button>
-    <button (click) = "handleClick('=', true)" class="input-container__item">{{ '=' }}</button>
+    
 </div>
 
 <button (click) = "handleClick('AC', true)" class="input-container__item">{{ 'AC' }}</button>
+<button (click) = "handleClick('+', true)" class="input-container__item">{{ '+' }}</button>
+<button (click) = "handleClick('*', true)" class="input-container__item">{{ '*' }}</button>
+<button (click) = "handleClick('=', true)" class="input-container__item">{{ '=' }}</button>
